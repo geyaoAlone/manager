@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/security")
 public interface SecurityAuthService {
 
+    @RequestMapping("/test")
+    public ResultVO test(String str);
+
     @RequestMapping("/checkToken")
     public ResultVO checkToken(String token);
 
