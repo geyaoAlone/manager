@@ -1,7 +1,7 @@
 package com.geyao.manager.common.web;
 
-import com.geyao.manager.common.dataobject.ResultVO;
-import com.geyao.manager.common.dataobject.SysUser;
+import com.geyao.manager.common.dataobject.vo.LoginVO;
+import com.geyao.manager.common.dataobject.vo.ResultVO;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * 安全服务接口
  */
 @RequestMapping("/security")
-public interface SecurityAuthService {
+public interface SecurityAuthInterface {
 
     @RequestMapping("/test")
     public ResultVO test(String str);
@@ -21,7 +21,7 @@ public interface SecurityAuthService {
     public ResultVO refreshToken(String token);
 
     @RequestMapping("/login")
-    public ResultVO login(@RequestBody SysUser user);
+    public ResultVO login(@RequestBody LoginVO loginVO);
 
 
 

@@ -1,4 +1,4 @@
-package com.geyao.manager.common.dataobject;
+package com.geyao.manager.common.dataobject.vo;
 
 import com.alibaba.fastjson.JSONObject;
 import lombok.Data;
@@ -6,10 +6,9 @@ import lombok.Data;
 @Data
 public class CommonInvokeVO {
     /**
-     * 请求地址：
-     * 只需要方法上的PostMapping地址
+     * 掉用码
      */
-    private String invokeUrl;
+    private String invokeCode;
 
     private JSONObject invokeData;
 

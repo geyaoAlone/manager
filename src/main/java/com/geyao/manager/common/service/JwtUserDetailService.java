@@ -1,7 +1,7 @@
 package com.geyao.manager.common.service;
 
 import com.geyao.manager.common.dataobject.JwtUserDetails;
-import com.geyao.manager.common.dataobject.SysUser;
+import com.geyao.manager.common.dataobject.table.SysUser;
 import com.geyao.manager.common.db.redis.RedisDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

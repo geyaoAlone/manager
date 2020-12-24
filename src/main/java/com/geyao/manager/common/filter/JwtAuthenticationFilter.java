@@ -1,10 +1,9 @@
 package com.geyao.manager.common.filter;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.geyao.manager.common.constants.SysConstant;
-import com.geyao.manager.common.dataobject.ResultVO;
-import com.geyao.manager.common.dataobject.SysUser;
+import com.geyao.manager.common.dataobject.vo.ResultVO;
+import com.geyao.manager.common.dataobject.table.SysUser;
 import com.geyao.manager.common.db.redis.RedisDao;
 import com.geyao.manager.common.utils.JwtTokenUtil;
 import org.slf4j.Logger;
@@ -22,7 +21,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Arrays;
 import java.util.Objects;
 
 /**

@@ -1,11 +1,11 @@
 package com.geyao.manager.common.web;
 
-import com.geyao.manager.common.dataobject.CommonInvokeVO;
-import com.geyao.manager.common.dataobject.ResultVO;
+import com.geyao.manager.common.dataobject.vo.CommonInvokeVO;
+import com.geyao.manager.common.dataobject.vo.ResultVO;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @RequestMapping("/api")
-public interface NormalInvokeService {
+public interface NormalInvokeInterface {
 
 
     @RequestMapping("/get")

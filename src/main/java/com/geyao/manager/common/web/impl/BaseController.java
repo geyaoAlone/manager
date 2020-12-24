@@ -1,6 +1,6 @@
 package com.geyao.manager.common.web.impl;
 
-import com.geyao.manager.common.dataobject.SysUser;
+import com.geyao.manager.common.dataobject.table.SysUser;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.springframework.security.core.Authentication;

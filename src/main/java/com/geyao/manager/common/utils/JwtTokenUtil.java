@@ -1,13 +1,11 @@
 package com.geyao.manager.common.utils;
 
 import com.geyao.manager.common.constants.SysConstant;
-import com.geyao.manager.common.dataobject.JwtUserDetails;
-import com.geyao.manager.common.dataobject.SysUser;
+import com.geyao.manager.common.dataobject.table.SysUser;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
@@ -97,6 +95,7 @@ public class JwtTokenUtil implements Serializable {
 
     public boolean validateToken(String token,SysUser user) {
         String userStr = getMobileFromToken(token);
-        return userStr.equals(user.getMerchantCode()+"_"+user.getMerchantCode()+"_"+user.getUsername());
+        System.out.println(userStr);
+        return userStr.equals(user.getModuleCode()+"_"+user.getMerchantCode()+"_"+user.getUsername());
     }
 }

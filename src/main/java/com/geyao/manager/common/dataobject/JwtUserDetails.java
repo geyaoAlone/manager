@@ -1,6 +1,6 @@
 package com.geyao.manager.common.dataobject;
 
-import com.geyao.manager.common.dataobject.SysUser;
+import com.geyao.manager.common.dataobject.table.SysUser;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

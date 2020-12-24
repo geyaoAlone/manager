@@ -1,4 +1,4 @@
-package com.geyao.manager.common.dataobject;
+package com.geyao.manager.common.dataobject.table;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -31,6 +31,7 @@ public class SysUser implements Serializable {
     private String username;
     /**
      * 密码
+     * 也可以是验证码
      * 可为空
      */
     private String password;
@@ -44,7 +45,7 @@ public class SysUser implements Serializable {
 
     private String mobile;
 
-    private int status;
+    private Integer status;
 
     private Date createTime;
 

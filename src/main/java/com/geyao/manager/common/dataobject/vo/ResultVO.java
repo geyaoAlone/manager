@@ -1,4 +1,4 @@
-package com.geyao.manager.common.dataobject;
+package com.geyao.manager.common.dataobject.vo;
 
 import com.geyao.manager.common.constants.SysConstant;
 import lombok.Data;
