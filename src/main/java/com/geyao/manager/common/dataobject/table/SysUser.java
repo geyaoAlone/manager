@@ -13,6 +13,7 @@ import java.util.Date;
 @ToString
 @TableName("t_sys_user")
 public class SysUser implements Serializable {
+
     @TableId(type = IdType.AUTO)
     private Long id;
     /**

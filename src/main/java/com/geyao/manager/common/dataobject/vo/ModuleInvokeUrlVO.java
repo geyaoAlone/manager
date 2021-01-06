@@ -7,4 +7,6 @@ import lombok.Data;
 public class ModuleInvokeUrlVO extends ModuleInvokeInfo {
 
     private String baseUrl;
+
+    private String fullUrl;//完整的地址
 }

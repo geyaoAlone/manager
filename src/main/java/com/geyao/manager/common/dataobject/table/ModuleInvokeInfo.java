@@ -27,5 +27,7 @@ public class ModuleInvokeInfo implements Serializable {
 
   private Date createTime;
 
+  private Integer isAuthUrl;//需要token认证的url：1-是；0-否
+
 
 }

@@ -30,7 +30,7 @@ import java.util.Objects;
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private static final Logger LOG = LoggerFactory.getLogger(JwtAuthenticationFilter.class);
 
-    private static final String[] PASS_FILTER_URL = {"/security"};
+    private static final String[] PASS_FILTER_URL = {"/security","/danger"};
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
 
@@ -57,7 +57,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 String userStr = jwtTokenUtil.getMobileFromToken(token);
                 if (userStr != null && redisDao.hasKey(userStr) && SecurityContextHolder.getContext().getAuthentication() == null) {
                     boolean canPass = false;
-                    SysUser user = (SysUser) redisDao.get(userStr);
+                    SysUser user =JSON.parseObject ((String) redisDao.get(userStr),SysUser.class);
                     boolean isValidate = jwtTokenUtil.validateToken(token, user);
                     boolean isExpired = jwtTokenUtil.isExpired(token);
 

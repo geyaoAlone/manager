@@ -55,6 +55,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and().authorizeRequests()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .antMatchers("/security/**").permitAll()
+                .antMatchers("/noAuth/**").permitAll()
                 .antMatchers("/weChat/**").permitAll()
                 .antMatchers("/webjars/**").permitAll()
                 .antMatchers("/v2/api-docs").permitAll()

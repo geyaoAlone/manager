@@ -8,8 +8,8 @@ public class CommonInvokeVO {
     /**
      * 掉用码
      */
-    private String invokeCode;
+    private String code;
 
-    private JSONObject invokeData;
+    private JSONObject data;
 
 }

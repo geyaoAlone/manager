@@ -1,5 +1,6 @@
 package com.geyao.manager.common.web.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.geyao.manager.common.constants.SysConstant;
 import com.geyao.manager.common.dataobject.table.SysMerchant;
@@ -107,7 +108,7 @@ public class SecurityAuthController implements SecurityAuthInterface {
         if(token == null){
             return new ResultVO("登陆失败！授权失败");
         }
-        if(!redis.set(loginVO.getModuleCode()+"_"+loginVO.getMerchantCode()+"_"+loginVO.getUsername(),user, SysConstant.JWT_TIMEOUT)){
+        if(!redis.set(loginVO.getModuleCode()+"_"+loginVO.getMerchantCode()+"_"+loginVO.getUsername(), JSON.toJSONString(user), SysConstant.JWT_TIMEOUT)){
             return new ResultVO("登陆失败！信息缓存失败！");
         }
         user.setPassword("");

@@ -10,6 +10,6 @@ import org.apache.ibatis.annotations.Select;
 public interface SysMerchantMapper extends BaseMapper<SysMerchant> {
 
 
-    @Select("select t.* from t_sys_merchant t,t_sys_module t1 where t.module_code = t1.module_code and t1.module_code = #{moduleCode} and t.merchant_code = #{merchantCode} and status=1")
+    @Select("select t.* from t_sys_merchant t,t_sys_module t1 where t.module_code = t1.module_code and t1.module_code = #{moduleCode} and t.merchant_code = #{merchantCode} and t.status=1")
     SysMerchant querySysMerchant(String moduleCode, String merchantCode);
 }

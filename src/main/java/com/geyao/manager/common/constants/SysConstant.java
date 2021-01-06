@@ -11,6 +11,10 @@ public interface SysConstant {
     public static final int INVOKE_FAIL = 0;
     //接口调用异常
     public static final int INVOKE_ERROR = -1;
+
+    //接口调用是否需要token认证
+    public static final int INVOKE_NO_AUTH = 0;
+    public static final int INVOKE_NEED_AUTH = 1;
     /**
      * jwt token前缀
      */
