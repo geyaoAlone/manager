@@ -15,8 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.Objects;
+import java.util.*;
 
 @Slf4j
 @Service
@@ -125,4 +124,43 @@ public class NormalInvokeService {
             noAuthInvokeDao.saveInvokeRecord(record);
         }
     }
+
+    public ResultVO transfers_post(String url,String param) {
+        NoAuthInvokeRecord record = new NoAuthInvokeRecord();
+        record.setInvokeUrl(url);
+        record.setInvokeStyle("POST");
+        record.setInvokeTime(new Date());
+        record.setInvokeContent(param);
+        try {
+            log.info("### start post invoke {} ------> params:{}",url,param);
+            String s = HttpClientUtil.postJsonData(url,param);
+            log.info("### post invoke {} return ------> {}",url,s);
+            record.setResponseData(s);
+            record.setResult(1);
+            if(s.startsWith("{") && s.contains("code") && s.contains("msg") && s.contains("data") && s.endsWith("}")){
+                return JSON.parseObject(s, ResultVO.class);
+            }else if(s.startsWith("{") && s.endsWith("}")){
+                JSONObject jsonObject = JSON.parseObject(s);
+                return new ResultVO("调用成功",jsonObject);
+            }else {
+                return new ResultVO("调用成功",s);
+            }
+        } catch (RuntimeException e) {
+            log.info("### post invoke {} return exception! {}",url, e.getMessage());
+            record.setResponseData(null);
+            record.setResult(0);
+            return new ResultVO(SysConstant.INVOKE_ERROR,"调用异常！");
+        }finally {
+            noAuthInvokeDao.saveInvokeRecord(record);
+        }
+    }
+
+    public static void main(String[] args) {
+        List<String> orderNoList = new ArrayList<>();
+        orderNoList.add("abc");
+        orderNoList.add("def");
+        orderNoList.add("sss");
+        System.out.println(orderNoList.contains("def"));
+    }
+
 }

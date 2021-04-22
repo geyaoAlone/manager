@@ -30,7 +30,7 @@ import java.util.Objects;
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private static final Logger LOG = LoggerFactory.getLogger(JwtAuthenticationFilter.class);
 
-    private static final String[] PASS_FILTER_URL = {"/security","/danger"};
+    private static final String[] PASS_FILTER_URL = {"/security","/noAuth"};
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
 

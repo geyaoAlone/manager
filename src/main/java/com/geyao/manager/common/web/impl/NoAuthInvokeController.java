@@ -1,6 +1,5 @@
 package com.geyao.manager.common.web.impl;
 
-import com.alibaba.fastjson.JSON;
 import com.geyao.manager.common.constants.SysConstant;
 import com.geyao.manager.common.dataobject.vo.CommonInvokeVO;
 import com.geyao.manager.common.dataobject.vo.ModuleInvokeUrlVO;
@@ -10,8 +9,11 @@ import com.geyao.manager.common.web.NoAuthInvokeInterface;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Iterator;
+import java.util.Map;
+
 @Slf4j
 @RestController
 public class NoAuthInvokeController implements NoAuthInvokeInterface {
@@ -34,7 +36,6 @@ public class NoAuthInvokeController implements NoAuthInvokeInterface {
 
     @Override
     public ResultVO invoke_post(CommonInvokeVO vo) {
-        System.out.println(JSON.toJSONString(vo));
         String invokeCode = vo.getCode();
         if(StringUtils.isBlank(invokeCode)){
             return new ResultVO(SysConstant.INVOKE_FAIL,"调用失败！code为空");
@@ -50,4 +51,31 @@ public class NoAuthInvokeController implements NoAuthInvokeInterface {
 
         return normalInvokeService.postInvoke(urlVO,vo);
     }
+
+
+
+
+
+    @Override
+    public ResultVO transfers_get() {
+        return null;
+    }
+
+    @Override
+    public Object transfers_post(Map map) {
+        String param = "";
+        Iterator<String> iterator = map.keySet().iterator();
+        while (iterator.hasNext()){
+            String s = iterator.next();
+            if(s != null){
+                param = s;
+            }
+        }
+        String urlVO = "https://qr.chinaums.com/netpay-route-server/api/";
+        log.info("data：{}",param);
+        //return new ResultVO("调用成功",param);
+        ResultVO vo = normalInvokeService.transfers_post(urlVO,param);
+        return vo.getData();
+    }
+
 }
